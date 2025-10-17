@@ -6,21 +6,9 @@ import axios from 'axios';
 import './one-way.css';
 import './content/content.css'
 import Menu from '../../components/Menu'
-import MeetGod from './content/MeetGod';
-import Salvation from './content/Salvation';
-import Living from './content/Living';
-import Morals from './content/Morals';
-import ConfessSins from './content/ConfessSins';
-import EternallySecure from './content/EternallySecure';
-import WalkWord from './content/WalkWord';
-import Encourage from './content/Encourage';
-import Introduction from './content/Introduction';
-import Oneliners from './content/Oneliners';
-import Events from './content/Events';
-import Prayers from './content/Prayers';
 
 
-const OneWay = ({ user, setUser, scrips, setScrips }) => {
+const OneWay = ({ user, setUser, setScrips }) => {
   // const [data, setData] = useState(null);
   // const [loading, setLoading] = useState(true);
   // const [error, setError] = useState(null);
@@ -74,39 +62,6 @@ const OneWay = ({ user, setUser, scrips, setScrips }) => {
     e.target.classList.add('active-btn');
   };
 
-  function getComponent() {
-    // return compent based on lesson state
-    switch (lesson) {
-      case 'Introduction':
-        return <Introduction />;
-      case 'Meet God':
-        return <MeetGod scrips={scrips} />;
-      case 'Salvation':
-        return <Salvation user={user} scrips={scrips} />;
-      case 'Living':
-        return <Living scrips={scrips} />;
-      case 'Morals':
-        return <Morals user={user} setUser={setUser} scrips={scrips} />;
-      case 'Confess My Sins':
-        return <ConfessSins />;
-      case 'Eternally Secure':
-        return <EternallySecure />;
-      case 'One Liners for meditation (words of Wisdom)':
-        return <Oneliners />;
-      case 'A Walk':
-        return <WalkWord user={user} setUser={setUser} studyDay={studyDay} scrips={scrips} />;
-      case 'Encourage Me':
-        return <Encourage />;
-      case 'One Way Event':
-        return <Events user={user} />;
-      case 'Prayer Requests':
-        return <Prayers user={user} />;
-      case 'Questions and AnswersAsk The Bible':
-        return <h1>{lesson}</h1>;
-      default:
-        return <h1>{lesson}</h1>;
-    }
-  };
   return (
     <>
     <header>
