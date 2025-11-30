@@ -16,7 +16,7 @@ module.exports = {
     console.log('Preparing to create user with req.body:', req.body);
 
     try {
-      const { firstName, lastName, username, email, password, role } = req.body;
+      const { firstName, lastName, username, email, password, role, studyStartDate } = req.body;
 
       // Validation
       if (!firstName || !lastName || !username || !email || !password) {
@@ -46,18 +46,19 @@ module.exports = {
       const result = await db.query(`
         INSERT INTO users (
           first_name, last_name, username, email, password, role,
-          charities, morals, journal, history
-        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+          study_start_date, charities, morals, journal, history
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
         RETURNING id, first_name, last_name, username, email, role,
                   study_start_date, gift_type, gift_amount, charities,
-                  created_at, updated_at
-      `, [
+                  created_at, updated_at`
+        , [
         firstName,
         lastName,
         username,
         email,
         hashedPassword,
         role || 'user',
+        studyStartDate || null, // Include studyStartDate from request
         JSON.stringify([]), // charities as empty array
         JSON.stringify([]), // morals as empty array
         JSON.stringify([]), // journal as empty array

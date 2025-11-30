@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const user_Controller = require('../controllers/user_controller')
+const user_Controller = require('../controllers/user_controller_pg')  // Use PostgreSQL controller
 const scrip_Controller = require('../controllers/scrip_controller.js')
 const encourage_Controller = require('../controllers/encourage_controller')
 const charity_Controller = require('../controllers/charity_controller')
